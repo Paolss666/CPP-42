@@ -6,21 +6,25 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:38:47 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/15 17:10:53 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/20 09:10:56 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
 
-int main(void)
+int main(int ac, char **av)
 {
     std::string value;
     Phonebook libray;
 
+    (void)ac;
+    (void)av;
+    // if (ac > 1
     while (1)
     {
         std::cout << "Enter Rule ";
-        std::getline(std::cin, value);
+        if (!std::getline(std::cin, value))
+            break;
         if (value == "ADD")
             libray.addContact();
         if (value == "SEARCH")

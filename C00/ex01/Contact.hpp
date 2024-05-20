@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:10:09 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/15 15:54:06 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/20 13:37:19 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ class Contact
     public:
         Contact();
         ~Contact();
-        int           isNumber(std::string const str);
-        int           isAlpha(std::string const str);
         void          setFirstName(std::string FirstName);
         void          setLastName(std::string lastName);
         void          setNickName(std::string nickName);
@@ -33,12 +31,14 @@ class Contact
 		std::string	  getNumberPhone(void);
 		std::string	  getNickName(void);
         std::string   getDarkSecret(void);
-    private : 
+    private :
         std::string  _FirstName;
         std::string  _LastName;
         std::string  _NickName;
         std::string  _PhoneNumber;
 		std::string  _DarkSecret;
+		int           isNumber(std::string const str);
+        int           isAlpha(std::string const str);
 };
 
 

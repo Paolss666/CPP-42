@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 14:58:15 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/15 16:45:02 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/20 10:15:36 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class Phonebook
 		Contact     _contacts[8];
 		int			_idx;
 		int			_idx2;
+		void		setPrintContact(std::string const line);
+		int           isNumber(std::string const str);
 };
 
 #endif
