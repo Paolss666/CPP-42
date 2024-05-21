@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:31:31 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/21 15:32:27 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:28:39 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void    Phonebook::addContact(void)
     std::string nickName;
     std::string PhoneNumber;
     std::string darkSecret;
+    // int         loop = 0;
 
     
     std::cout << "|---- ENTER A CONTACT ----|" << std::endl;
@@ -115,7 +116,9 @@ void    Phonebook::searchContact(void)
     std::string     valueToFound;
     int             index_to_found = 0;
 
-    if (this->_idx == -1)
+
+    /* HO AGGGIUNTO QUESTA CONDIZIONE PER IL VIDE SINO QUANDO AGGIUNGO NON FUNZIONA DOPO IL SECONDO RIEMPIMENTO*/
+    if (this->_idx == -1 && !this->_contacts[0].isValid())
     {
         std::cerr << "The PhoneBook is empty, please add a contact" << std::endl;
         return ;
@@ -150,7 +153,7 @@ void    Phonebook::searchContact(void)
 		std::cerr << "Number index neg WTF " << std::endl;
         return ;
     }
-	if (this->_idx < index_to_found)
+	if (this->_idx < index_to_found /* || this->_idx2 < index_to_found */)
 	{
 		std::cerr << "Index value is bigger than the numbers of contacts " << std::endl;
         return ;
