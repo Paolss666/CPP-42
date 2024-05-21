@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:31:31 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/20 15:39:11 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:32:27 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,36 +49,52 @@ void    Phonebook::addContact(void)
     std::string PhoneNumber;
     std::string darkSecret;
 
+    
     std::cout << "|---- ENTER A CONTACT ----|" << std::endl;
     std::cout << " "<< std::endl;
+    
     std::cout << "|----    FirstName   -----|" << std::endl;
     std::cout << "         ";
     if (!std::getline(std::cin, firstName))
         return ;
     contact.setFirstName(firstName);
-    std::cout << "|-----    LastName   -----|" << std::endl;
-    std::cout << "          ";
+    
+    std::cout << "|-----   LastName   -----|" << std::endl;
+    std::cout << "         ";
     if (!std::getline(std::cin, lastName))
         return ;
     contact.setLastName(lastName);
+    
     std::cout << "|------  NickName   ------|" << std::endl;
     std::cout << "         ";
     if (!std::getline(std::cin, nickName))
         return ;
     contact.setNickName(nickName);
+    
     std::cout << "|----   PhoneNumber   ----|" << std::endl;
     std::cout << "        ";
     if (!std::getline(std::cin, PhoneNumber))
         return ;
     contact.setPhoneNumber(PhoneNumber);
+    
     std::cout << "|----   Darksecret    ----|" << std::endl;
     std::cout << "        ";
     if (!std::getline(std::cin, darkSecret))
         return ;
     contact.setDarkSecret(darkSecret);
-
+    
+    if (this->_idx == 7)
+    {
+        std::cout << "mon index est dans la condifiton a " << this->_idx << std::endl;
+        this->_contacts[this->_idx2] = contact;
+        this->_idx2++;
+        if (this->_idx2 == 7)
+            return (this->_idx = -1, this->_idx2 = 0, (void)0);
+        return ;
+    }
     this->_idx++;
     this->_contacts[this->_idx] = contact;
+    std::cout << "mon index est a " << this->_idx << std::endl;
     return ;
 }
 
@@ -90,30 +106,33 @@ void		Phonebook::setPrintContact(std::string const line)
     else
         std::cout << line << std ::setw (10);
     std::cout << std::endl;
+    return ;
 }
 
 void    Phonebook::searchContact(void)
 {
-    Contact     contact;
-    std::string valueToFound;
-    int     index_to_found = 0;
-    int     fnd = 0;
+    Contact         contact;
+    std::string     valueToFound;
+    int             index_to_found = 0;
 
-    while (this->_idx2 <=  this->_idx)
+    if (this->_idx == -1)
     {
-        std::cout << "index contact " << this->_idx2 << std::endl;
-        setPrintContact(this->_contacts[fnd].getFirstName());
-        setPrintContact(this->_contacts[fnd].getLastName());
-        setPrintContact(this->_contacts[fnd].getNickName());
-        this->_idx2++;
+        std::cerr << "The PhoneBook is empty, please add a contact" << std::endl;
+        return ;
     }
-    // std::cout << "---> index_2" << this->_idx2 << std::endl;
-    // std::cout << "---> index" << this->_idx << std::endl;
+    
+    for(int i = 0; i < 8 && this->_contacts[i].isValid() ; i++)
+    {   
+        std::cout << "index contact " << i << std::endl;
+        setPrintContact(this->_contacts[i].getFirstName());
+        setPrintContact(this->_contacts[i].getLastName());
+        setPrintContact(this->_contacts[i].getNickName());
+    }
 
     std::cout << "Enter index of the conctact ";
 	if (this->isNumber(valueToFound) != 0 && !valueToFound.empty())
         index_to_found = std::stoi(valueToFound);
-    else{
+    else {
         while (this->isNumber(valueToFound) == 0 || valueToFound.empty()){
             std::cerr << "Please enter a valid index: ";
             if (!std::getline(std::cin, valueToFound))
@@ -126,40 +145,27 @@ void    Phonebook::searchContact(void)
         }
             
     }
-    
-    if (this->_idx2 == -1)
+    if (index_to_found < 0)
     {
-        std::cerr << "The PhoneBook is empty, please add a contact" << std::endl;
-		this->_idx2 = 0;
-        // this->_idx = -1;
-        // fnd = 0;
+		std::cerr << "Number index neg WTF " << std::endl;
         return ;
     }
-	else if (this->_idx2 < index_to_found || index_to_found < 0)
+	if (this->_idx < index_to_found)
 	{
-		std::cerr << "Index value is bigger than the Phonebook " << std::endl;
-		this->_idx2 = 0;
-        // this->_idx = -1;
-        // index_to_found = 0;
-        // fnd = 0;
+		std::cerr << "Index value is bigger than the numbers of contacts " << std::endl;
         return ;
 	}
-    std::cout << "index found " << index_to_found << std::endl;
     
-    while(fnd <= index_to_found)
+    for(int i = 0; this->_contacts[i].isValid() ; i++)
     {
-        if (fnd == index_to_found)
+        if (i == index_to_found)
         {
-            setPrintContact(this->_contacts[fnd].getFirstName());
-            setPrintContact(this->_contacts[fnd].getLastName());
-            setPrintContact(this->_contacts[fnd].getNickName());
-            setPrintContact(this->_contacts[fnd].getNumberPhone());
-            setPrintContact(this->_contacts[fnd].getDarkSecret());
+            setPrintContact(this->_contacts[i].getFirstName());
+            setPrintContact(this->_contacts[i].getLastName());
+            setPrintContact(this->_contacts[i].getNickName());
+            setPrintContact(this->_contacts[i].getNumberPhone());
+            setPrintContact(this->_contacts[i].getDarkSecret());
         }
-        fnd++;
     }
-    fnd = 0;
-    this->_idx2 = 0;
-    // this->_idx = -1;
     return ;
 }

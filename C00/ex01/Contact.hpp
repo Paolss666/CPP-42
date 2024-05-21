@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:10:09 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/20 13:37:19 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:18:52 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class Contact
         void          setNickName(std::string nickName);
         void          setPhoneNumber(std::string phoneNumber);
         void          setDarkSecret(std::string darckSercret);
-		std::string   getFirstName(void);
+		bool          isValid(void) const;
+        std::string   getFirstName(void);
 		std::string	  getLastName(void);
 		std::string	  getNumberPhone(void);
 		std::string	  getNickName(void);
