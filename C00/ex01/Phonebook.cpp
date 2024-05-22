@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:31:31 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/21 16:28:39 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:24:07 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void    Phonebook::addContact(void)
     std::string nickName;
     std::string PhoneNumber;
     std::string darkSecret;
-    // int         loop = 0;
-
     
     std::cout << "|---- ENTER A CONTACT ----|" << std::endl;
     std::cout << " "<< std::endl;
@@ -88,14 +86,14 @@ void    Phonebook::addContact(void)
     {
         std::cout << "mon index est dans la condifiton a " << this->_idx << std::endl;
         this->_contacts[this->_idx2] = contact;
-        this->_idx2++;
         if (this->_idx2 == 7)
             return (this->_idx = -1, this->_idx2 = 0, (void)0);
+        this->_idx2++;
         return ;
     }
     this->_idx++;
     this->_contacts[this->_idx] = contact;
-    std::cout << "mon index est a " << this->_idx << std::endl;
+    // std::cout << "mon index est a " << this->_idx << std::endl;
     return ;
 }
 
@@ -117,8 +115,7 @@ void    Phonebook::searchContact(void)
     int             index_to_found = 0;
 
 
-    /* HO AGGGIUNTO QUESTA CONDIZIONE PER IL VIDE SINO QUANDO AGGIUNGO NON FUNZIONA DOPO IL SECONDO RIEMPIMENTO*/
-    if (this->_idx == -1 && !this->_contacts[0].isValid())
+    if (!this->_contacts[0].isValid())
     {
         std::cerr << "The PhoneBook is empty, please add a contact" << std::endl;
         return ;
@@ -148,18 +145,13 @@ void    Phonebook::searchContact(void)
         }
             
     }
-    if (index_to_found < 0)
-    {
-		std::cerr << "Number index neg WTF " << std::endl;
-        return ;
-    }
-	if (this->_idx < index_to_found /* || this->_idx2 < index_to_found */)
+	if (!this->_contacts[index_to_found].isValid() || index_to_found > 7)
 	{
 		std::cerr << "Index value is bigger than the numbers of contacts " << std::endl;
         return ;
 	}
     
-    for(int i = 0; this->_contacts[i].isValid() ; i++)
+    for(int i = 0; i < 8 && this->_contacts[i].isValid() ; i++)
     {
         if (i == index_to_found)
         {
