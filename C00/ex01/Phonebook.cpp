@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:31:31 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/22 14:24:07 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:45:40 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ void    Phonebook::addContact(void)
         return ;
     contact.setNickName(nickName);
     
-    std::cout << "|----   PhoneNumber   ----|" << std::endl;
-    std::cout << "        ";
+    std::cout << "|----    PhoneNumber   ----|" << std::endl;
+    std::cout << "         ";
     if (!std::getline(std::cin, PhoneNumber))
         return ;
     contact.setPhoneNumber(PhoneNumber);
     
-    std::cout << "|----   Darksecret    ----|" << std::endl;
-    std::cout << "        ";
+    std::cout << "|----    Darksecret    ----|" << std::endl;
+    std::cout << "         ";
     if (!std::getline(std::cin, darkSecret))
         return ;
     contact.setDarkSecret(darkSecret);
@@ -93,18 +93,16 @@ void    Phonebook::addContact(void)
     }
     this->_idx++;
     this->_contacts[this->_idx] = contact;
-    // std::cout << "mon index est a " << this->_idx << std::endl;
     return ;
 }
 
 
 void		Phonebook::setPrintContact(std::string const line)
 {
-    if (line.size() >= 10)
-        std::cout << line.substr(0, 9) << "." << std ::setw (10);
+    if (line.size() > 10)
+        std::cout << std::setw (10) << line.substr(0, 9) << ".";
     else
-        std::cout << line << std ::setw (10);
-    std::cout << std::endl;
+        std::cout << std ::setw (10) << line ;
     return ;
 }
 
@@ -123,10 +121,21 @@ void    Phonebook::searchContact(void)
     
     for(int i = 0; i < 8 && this->_contacts[i].isValid() ; i++)
     {   
-        std::cout << "index contact " << i << std::endl;
+        // std::cout << "  index  | FIRNAME | LASTNAME |  NICKNAME |" << std::endl;
+        std::cout  << "    |INDEX|    " << std ::setw (10);
+        std::cout  << "    |FIRNAME|    " << std ::setw (10);
+        std::cout  << "    |LASTNAME|    " << std ::setw (10);
+        std::cout  << "    |NICKNAME|    " << std ::setw (10) ;
+        std::cout << std::endl;
+        setPrintContact(std::to_string(i));
+        // std::cout << " | " ;
         setPrintContact(this->_contacts[i].getFirstName());
+        // std::cout << " | " ;
         setPrintContact(this->_contacts[i].getLastName());
+        // std::cout << " | " ;
         setPrintContact(this->_contacts[i].getNickName());
+        // std::cout << " | " ;
+        std::cout << std::endl;
     }
 
     std::cout << "Enter index of the conctact ";
@@ -143,7 +152,6 @@ void    Phonebook::searchContact(void)
                 break;
             }
         }
-            
     }
 	if (!this->_contacts[index_to_found].isValid() || index_to_found > 7)
 	{
@@ -160,6 +168,7 @@ void    Phonebook::searchContact(void)
             setPrintContact(this->_contacts[i].getNickName());
             setPrintContact(this->_contacts[i].getNumberPhone());
             setPrintContact(this->_contacts[i].getDarkSecret());
+            std::cout << std::endl;
         }
     }
     return ;

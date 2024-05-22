@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:33:39 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/21 14:27:51 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:03:36 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,19 +98,19 @@ void    Contact::setNickName(std::string nickName)
 
 void    Contact::setPhoneNumber(std::string numberPhone)
 {
-    if (this->isNumber(numberPhone) != 0 && !numberPhone.empty())
+    if (this->isNumber(numberPhone) != 0 && !numberPhone.empty() && this->isValidNumber(numberPhone))
     {
         this->_PhoneNumber = numberPhone;
         return ;
     }
     else
     {
-        while (this->isNumber(numberPhone) == 0 || numberPhone.empty())
+        while (this->isNumber(numberPhone) == 0 || numberPhone.empty() || !this->isValidNumber(numberPhone))
         {
             std::cerr << "Please enter a valid phone number: " ;
             if (!std::getline(std::cin, numberPhone))
                 return ;
-            if (this->isNumber(numberPhone) != 0 && !numberPhone.empty())
+            if (this->isNumber(numberPhone) != 0 && !numberPhone.empty() && this->isValidNumber(numberPhone))
             {
                 this->_PhoneNumber = numberPhone;
                 break;
@@ -172,6 +172,14 @@ std::string  Contact::getDarkSecret(void)
 
 bool    Contact::isValid(void) const {
         return !this->_FirstName.empty() && !this->_LastName.empty();
+}
+
+
+int     Contact::isValidNumber(std::string const number){
+    
+    if (number.size() < 4)
+        return 0;
+    return 1;
 }
 
 int     Contact::isNumber(std::string const str)

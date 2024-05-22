@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:10:09 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/21 14:18:52 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:56:47 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class Contact
         std::string  _PhoneNumber;
 		std::string  _DarkSecret;
 		int           isNumber(std::string const str);
+		int           isValidNumber(std::string const str);
         int           isAlpha(std::string const str);
 };
 
