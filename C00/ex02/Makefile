@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+         #
+#    By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 16:22:18 by npaolett          #+#    #+#              #
-#    Updated: 2024/05/23 18:12:40 by npaolett         ###   ########.fr        #
+#    Updated: 2024/05/23 19:25:45 by npoalett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Phonebook
+NAME = Emploi
 
 CC = c++
 
