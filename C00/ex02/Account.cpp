@@ -6,7 +6,7 @@
 /*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:02:01 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/23 20:10:58 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/05/23 20:18:24 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,10 @@ void Account::makeDeposit(int deposit)
     std::cout << "personal amout: " << this->_amount << "; ";
     std::cout << "deposit: " << deposit << "; ";
     std::cout << "upgrade amout: " <<  this->_amount + deposit << "; ";
-    std::cout << "deposit: " << this->_nbDeposits++ << std::endl;
+    std::cout << "deposit: " << this->_nbDeposits + 1 << std::endl;
 
-    this->_amount += deposit; 
+    this->_amount += deposit;
+    this->_nbDeposits += 1;
     Account::_totalAmount += deposit;
     Account::_totalNbDeposits += 1;
     return ;
