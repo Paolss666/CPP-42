@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:33:39 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/22 17:03:36 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:29:28 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void    Contact::setFirstName(std::string FirstName)
         while (this->isAlpha(FirstName) == 0 || FirstName.empty())
         {
             std::cerr << "Please enter a valid first Name: ";
-            if (!std::getline(std::cin, FirstName))
+            if (!std::getline(std::cin, FirstName) || std::cin.eof())
                 return ;
             if (this->isAlpha(FirstName) != 0 && !FirstName.empty())
             {
@@ -85,7 +85,7 @@ void    Contact::setNickName(std::string nickName)
         while (nickName.empty())
         {
             std::cerr << "Please enter a valid Nick Name: " ;
-            if (!std::getline(std::cin, nickName))
+            if (!std::getline(std::cin, nickName)|| std::cin.eof())
                 return ;
             if (!nickName.empty())
             {
@@ -108,7 +108,7 @@ void    Contact::setPhoneNumber(std::string numberPhone)
         while (this->isNumber(numberPhone) == 0 || numberPhone.empty() || !this->isValidNumber(numberPhone))
         {
             std::cerr << "Please enter a valid phone number: " ;
-            if (!std::getline(std::cin, numberPhone))
+            if (!std::getline(std::cin, numberPhone)|| std::cin.eof())
                 return ;
             if (this->isNumber(numberPhone) != 0 && !numberPhone.empty() && this->isValidNumber(numberPhone))
             {
@@ -131,7 +131,7 @@ void    Contact::setDarkSecret(std::string DarkSecret)
         while (DarkSecret.empty())
         {
             std::cerr << "Please enter a valid DARK secret: " ;
-            if (std::getline(std::cin, DarkSecret))
+            if (std::getline(std::cin, DarkSecret)|| std::cin.eof())
                 return ;
             if (!DarkSecret.empty())
             {

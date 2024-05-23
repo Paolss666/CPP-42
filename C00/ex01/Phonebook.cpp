@@ -6,12 +6,14 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:31:31 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/22 18:45:40 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:28:33 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
 #include <iostream>
+#include <sstream>
+#include <cstdlib>
 
 Phonebook::Phonebook(void)
 {
@@ -54,31 +56,31 @@ void    Phonebook::addContact(void)
     
     std::cout << "|----    FirstName   -----|" << std::endl;
     std::cout << "         ";
-    if (!std::getline(std::cin, firstName))
+    if (!std::getline(std::cin, firstName)|| std::cin.eof())
         return ;
     contact.setFirstName(firstName);
     
     std::cout << "|-----   LastName   -----|" << std::endl;
     std::cout << "         ";
-    if (!std::getline(std::cin, lastName))
+    if (!std::getline(std::cin, lastName)|| std::cin.eof())
         return ;
     contact.setLastName(lastName);
     
     std::cout << "|------  NickName   ------|" << std::endl;
     std::cout << "         ";
-    if (!std::getline(std::cin, nickName))
+    if (!std::getline(std::cin, nickName)|| std::cin.eof())
         return ;
     contact.setNickName(nickName);
     
     std::cout << "|----    PhoneNumber   ----|" << std::endl;
     std::cout << "         ";
-    if (!std::getline(std::cin, PhoneNumber))
+    if (!std::getline(std::cin, PhoneNumber)|| std::cin.eof())
         return ;
     contact.setPhoneNumber(PhoneNumber);
     
     std::cout << "|----    Darksecret    ----|" << std::endl;
     std::cout << "         ";
-    if (!std::getline(std::cin, darkSecret))
+    if (!std::getline(std::cin, darkSecret)|| std::cin.eof())
         return ;
     contact.setDarkSecret(darkSecret);
     
@@ -99,8 +101,8 @@ void    Phonebook::addContact(void)
 
 void		Phonebook::setPrintContact(std::string const line)
 {
-    if (line.size() > 10)
-        std::cout << std::setw (10) << line.substr(0, 9) << ".";
+    if (line.size() > 9)
+        std::cout << std::setw (10) << line.substr(0, 9) + ".";
     else
         std::cout << std ::setw (10) << line ;
     return ;
@@ -118,37 +120,33 @@ void    Phonebook::searchContact(void)
         std::cerr << "The PhoneBook is empty, please add a contact" << std::endl;
         return ;
     }
-    
+    std::cout << std::endl << "╔══════════╦══════════╦══════════╦══════════╗" << std::endl
+						                << "║   INDEX  ║FIRST NAME║LAST  NAME║ NICKNAME ║" << std::endl;
     for(int i = 0; i < 8 && this->_contacts[i].isValid() ; i++)
     {   
-        // std::cout << "  index  | FIRNAME | LASTNAME |  NICKNAME |" << std::endl;
-        std::cout  << "    |INDEX|    " << std ::setw (10);
-        std::cout  << "    |FIRNAME|    " << std ::setw (10);
-        std::cout  << "    |LASTNAME|    " << std ::setw (10);
-        std::cout  << "    |NICKNAME|    " << std ::setw (10) ;
-        std::cout << std::endl;
-        setPrintContact(std::to_string(i));
-        // std::cout << " | " ;
+        std::cout << "|" ;
+        std::cout << std ::setw (10) << i;
+        std::cout << "|" ;
         setPrintContact(this->_contacts[i].getFirstName());
-        // std::cout << " | " ;
+        std::cout << "|" ;
         setPrintContact(this->_contacts[i].getLastName());
-        // std::cout << " | " ;
+        std::cout << "|" ;
         setPrintContact(this->_contacts[i].getNickName());
-        // std::cout << " | " ;
+        std::cout << "|" ;
         std::cout << std::endl;
     }
 
     std::cout << "Enter index of the conctact ";
 	if (this->isNumber(valueToFound) != 0 && !valueToFound.empty())
-        index_to_found = std::stoi(valueToFound);
+        index_to_found = atoi(valueToFound.c_str());
     else {
         while (this->isNumber(valueToFound) == 0 || valueToFound.empty()){
             std::cerr << "Please enter a valid index: ";
-            if (!std::getline(std::cin, valueToFound))
+            if (!std::getline(std::cin, valueToFound)|| std::cin.eof())
                 return ;
             if (this->isNumber(valueToFound) != 0 && !valueToFound.empty())
             {
-                index_to_found = std::stoi(valueToFound);
+                index_to_found = atoi(valueToFound.c_str());
                 break;
             }
         }
@@ -163,11 +161,15 @@ void    Phonebook::searchContact(void)
     {
         if (i == index_to_found)
         {
-            setPrintContact(this->_contacts[i].getFirstName());
-            setPrintContact(this->_contacts[i].getLastName());
-            setPrintContact(this->_contacts[i].getNickName());
-            setPrintContact(this->_contacts[i].getNumberPhone());
-            setPrintContact(this->_contacts[i].getDarkSecret());
+            std::cout << "FirstName: " <<  this->_contacts[i].getFirstName();
+            std::cout << std::endl;
+            std::cout << "LastName: " << this->_contacts[i].getLastName();
+            std::cout << std::endl;
+            std::cout << "NickName: " << this->_contacts[i].getNickName();
+            std::cout << std::endl;
+            std::cout << "NumberPhone: " << this->_contacts[i].getNumberPhone();
+            std::cout << std::endl;
+            std::cout << "DarkSecret: " << this->_contacts[i].getDarkSecret();
             std::cout << std::endl;
         }
     }

@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:38:47 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/20 09:10:56 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:33:23 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int main(int ac, char **av)
     std::string value;
     Phonebook libray;
 
-    (void)ac;
     (void)av;
-    // if (ac > 1
+    if (ac > 1)
+        return (std::cerr << "don't keep arguments" << std::endl , 1) ;
     while (1)
     {
         std::cout << "Enter Rule ";
