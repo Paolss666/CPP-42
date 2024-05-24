@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:33:39 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/23 16:29:28 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/24 15:33:48 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void    Contact::setDarkSecret(std::string DarkSecret)
         while (DarkSecret.empty())
         {
             std::cerr << "Please enter a valid DARK secret: " ;
-            if (std::getline(std::cin, DarkSecret)|| std::cin.eof())
+            if (!std::getline(std::cin, DarkSecret)|| std::cin.eof())
                 return ;
             if (!DarkSecret.empty())
             {
