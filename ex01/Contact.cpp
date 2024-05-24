@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:33:39 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/24 15:33:48 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:11:29 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,17 @@ void    Contact::setLastName(std::string lastName)
 
 void    Contact::setNickName(std::string nickName)
 {
-    if (!nickName.empty())
+    if (!nickName.empty() && this->isAlpha(nickName) != 0)
     {
         this->_NickName = nickName;
     }
     else{
-        while (nickName.empty())
+        while (nickName.empty() || this->isAlpha(nickName) == 0)
         {
             std::cerr << "Please enter a valid Nick Name: " ;
             if (!std::getline(std::cin, nickName)|| std::cin.eof())
                 return ;
-            if (!nickName.empty())
+            if (!nickName.empty() && this->isAlpha(nickName) != 0)
             {
                 this->_NickName = nickName;
                 break;
@@ -122,18 +122,18 @@ void    Contact::setPhoneNumber(std::string numberPhone)
 
 void    Contact::setDarkSecret(std::string DarkSecret)
 {
-    if (!DarkSecret.empty())
+    if (!DarkSecret.empty() && this->isAlpha(DarkSecret) != 0)
     {
         this->_DarkSecret = DarkSecret;
     }
     else
     {
-        while (DarkSecret.empty())
+        while (DarkSecret.empty() || this->isAlpha(DarkSecret) == 0)
         {
             std::cerr << "Please enter a valid DARK secret: " ;
             if (!std::getline(std::cin, DarkSecret)|| std::cin.eof())
                 return ;
-            if (!DarkSecret.empty())
+            if (!DarkSecret.empty() && this->isAlpha(DarkSecret) != 0)
             {
                 this->_DarkSecret = DarkSecret;
                 break;

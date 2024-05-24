@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:31:31 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/23 16:28:33 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:17:53 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void    Phonebook::addContact(void)
     
     if (this->_idx == 7)
     {
-        std::cout << "mon index est dans la condifiton a " << this->_idx << std::endl;
         this->_contacts[this->_idx2] = contact;
         if (this->_idx2 == 7)
             return (this->_idx = -1, this->_idx2 = 0, (void)0);
@@ -101,7 +100,7 @@ void    Phonebook::addContact(void)
 
 void		Phonebook::setPrintContact(std::string const line)
 {
-    if (line.size() > 9)
+    if (line.size() > 10)
         std::cout << std::setw (10) << line.substr(0, 9) + ".";
     else
         std::cout << std ::setw (10) << line ;
