@@ -6,12 +6,12 @@
 #    By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 16:22:18 by npaolett          #+#    #+#              #
-#    Updated: 2024/05/27 15:55:37 by npaolett         ###   ########.fr        #
+#    Updated: 2024/05/27 15:55:40 by npaolett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Brain
+NAME = Horde
 
 CC = c++
 
@@ -23,8 +23,7 @@ CFLAGS = -g3 -Wall -Wextra -Werror  -std=c++98 -MMD
 
 SRC = 	main.cpp \
 		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
+		ZombieHorde.cpp\
  
 
 OBJ = $(SRC:.cpp=.o)

@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:40:02 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/27 15:52:25 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:53:27 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class Zombie
         void setNameZombie(std::string name);
 };
 
-void randomChump( std::string name );
-Zombie* newZombie( std::string name );
+Zombie* ZombieHorde(int N, std::string name);
 
 
 #endif

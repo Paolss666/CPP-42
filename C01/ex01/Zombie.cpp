@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:41:18 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/27 15:54:48 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:44:15 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,19 @@ void Zombie::announce(void){
     return ; 
 }
 
+// Zombie* newZombie(std::string name)
+// {
+//     Zombie*  nw_zombie = new Zombie;
+    
+//     nw_zombie->setNameZombie(name);
+//     return (nw_zombie);
+// }
+
+// void randomChump( std::string name )
+// {
+//     Zombie random;
+    
+//     random.setNameZombie(name);
+//     random.announce();
+//     return ;
+// }

@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 16:40:02 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/27 15:52:25 by npaolett         ###   ########.fr       */
+/*   Created: 2024/05/27 11:55:13 by npaolett          #+#    #+#             */
+/*   Updated: 2024/05/27 14:55:32 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <string>
-#include <iomanip>
-#include <iostream>
-
-class Zombie
+int main(void)
 {
-    private:
-        std::string _Name;
-    public:
-        Zombie(void);
-        ~Zombie(void);
-        void    announce(void);
-        void setNameZombie(std::string name);
-};
+    Zombie* new_PetitZombie  = newZombie("Frank");
 
-void randomChump( std::string name );
-Zombie* newZombie( std::string name );
+    new_PetitZombie->announce();
 
+    delete(new_PetitZombie);
 
-#endif
+    // RANDOMCHUMP ajout dans la pile (stack)
+    randomChump("new Frank");
+
+    return (0);
+}
