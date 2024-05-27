@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:40:02 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/27 15:53:27 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:25:11 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <sstream>
+#include <cstdlib>
+
 
 class Zombie
 {
