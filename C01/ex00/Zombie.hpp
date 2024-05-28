@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:40:02 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/27 15:52:25 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:35:54 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ class Zombie
 
 void randomChump( std::string name );
 Zombie* newZombie( std::string name );
-
+int    isAlpha(std::string const str);
 
 #endif

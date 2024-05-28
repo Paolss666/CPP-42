@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:41:18 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/27 15:44:15 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:17:36 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void Zombie::announce(void){
     std::cout << this->_Name + ":" << " BraiiiiiiinnnzzzZ..." << std::endl;
     return ; 
 }
+
+
 
 // Zombie* newZombie(std::string name)
 // {
