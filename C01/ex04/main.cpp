@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:30:07 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/28 17:47:52 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:00:44 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main(int ac, char **av)
     }
 
     FileOut.open(av[1]);
+    std::string fileOutname = av[1];
     if (!FileOut.is_open())
     {
         std::cerr << "File don't found" << std::endl;
@@ -77,9 +78,9 @@ int main(int ac, char **av)
 
     replaceAll(content, s1, s2);
     
-    std::string fileReplace = FileOut + ".replace";
+    std::string fileReplace = fileOutname + ".replace";
 
-    std::ofstream FileReplace(fileReplace);
+    std::ofstream FileReplace(fileReplace.c_str());
     
     if (!FileReplace.is_open()){
         std::cerr << "I can't open this file" << std::endl;
