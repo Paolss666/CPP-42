@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:30:07 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/28 19:00:44 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/29 09:50:15 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int ac, char **av)
     std::string fileOutname = av[1];
     if (!FileOut.is_open())
     {
-        std::cerr << "File don't found" << std::endl;
+        std::cerr << "File don't found or I can't open this file" << std::endl;
         return 1;
     }
 
@@ -62,7 +62,6 @@ int main(int ac, char **av)
 
     std::string content((std::istreambuf_iterator<char>(FileOut)), std::istreambuf_iterator<char>());
 
-    // std::cout << "content found ==> " << content << "pos " << pos << std::endl;
     s2 = av[3];
     if (s2.empty())
     {
@@ -84,6 +83,7 @@ int main(int ac, char **av)
     
     if (!FileReplace.is_open()){
         std::cerr << "I can't open this file" << std::endl;
+        return 1;
     }
 
     FileReplace << content;
