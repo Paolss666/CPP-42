@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:29:25 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/28 16:19:03 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:49:57 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ HumanB::~HumanB(void)
 
 void    HumanB::attack()
 {
-    if (!_weapon->getType().empty())
+    if (this->_weapon != NULL && !this->_weapon->getType().empty())
     {
         std::cout << this->_name << ": attack with their " 
             << _weapon->getType() << std::endl;
+        return ;
     }
     else
         std::cout << this->_name << ": attack with nothing" << std::endl;

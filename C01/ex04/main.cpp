@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:30:07 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/29 09:50:15 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:52:46 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iomanip>
 #include <string>
 #include <fstream>
+#include <sstream>
 
 
 void replaceAll(std::string& str, const std::string& from, const std::string& to)
@@ -60,7 +61,13 @@ int main(int ac, char **av)
         }
     }
 
-    std::string content((std::istreambuf_iterator<char>(FileOut)), std::istreambuf_iterator<char>());
+    std::ostringstream cpy;
+    
+    // READ BUFFER;
+
+    cpy << FileOut.rdbuf();
+    
+    std::string content = cpy.str();
 
     s2 = av[3];
     if (s2.empty())

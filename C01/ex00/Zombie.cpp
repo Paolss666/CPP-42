@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:41:18 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/27 15:54:48 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:17:28 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Zombie::Zombie(): _Name()
 {
-    std::cout << "Costructeur colled" << std::endl;
+    std::cout << "Constructor called" << std::endl;
     return ;
 }
 
 Zombie::~Zombie()
 {
-    std::cout << "Destructeur colled" << std::endl;
+    std::cout << this->_Name << "> Destructor called" << std::endl;
     return ;
 }
 

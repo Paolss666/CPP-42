@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:40:02 by npaolett          #+#    #+#             */
-/*   Updated: 2024/05/28 12:31:47 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:52:57 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Zombie
 };
 
 Zombie* ZombieHorde(int N, std::string name);
-int     isNumberButNotZero(std::string const str);
+int     isNumber(std::string const str);
 int    isAlpha(std::string const str);
 
 #endif
