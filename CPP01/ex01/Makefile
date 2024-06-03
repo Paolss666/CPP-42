@@ -1,0 +1,53 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/04 16:22:18 by npaolett          #+#    #+#              #
+#    Updated: 2024/05/27 15:55:40 by npaolett         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+NAME = Horde
+
+CC = c++
+
+RM = rm -fr
+
+CFLAGS = -g3 -Wall -Wextra -Werror  -std=c++98 -MMD
+
+
+
+SRC = 	main.cpp \
+		Zombie.cpp \
+		ZombieHorde.cpp\
+ 
+
+OBJ = $(SRC:.cpp=.o)
+DEP = $(SRC:.cpp=.d)
+
+
+$(NAME): $(OBJ)
+		$(CC) -o $(NAME) $(OBJ)
+
+all : $(NAME)
+
+-include $(DEP)
+
+%.o: %.cpp
+	$(CC) $(INCL) $(CFLAGS) -o $@ -c $<
+
+	
+clean:
+	$(RM) $(OBJ) $(DEP)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean 
+	make all
+
+.PHONY: all clean fclean 

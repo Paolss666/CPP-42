@@ -1,0 +1,88 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/31 13:54:39 by npaolett          #+#    #+#             */
+/*   Updated: 2024/06/03 14:26:58 by npaolett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Fixed.hpp"
+
+Fixed::Fixed(void): _fixe(0)
+{
+    std::cout << "Default constructor called" << std::endl;
+    return ;
+}
+
+// Costructor intNb fixe;
+
+Fixed::Fixed(int const nb): _fixe(nb << _bits)
+{
+    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "---> nb  " << nb << std::endl;
+    // std::cout << "---> " << this->_fixe << std::endl;
+    return ;
+}
+
+Fixed::Fixed(float const nbFloat): _fixe(roundf( nbFloat * (1 << _bits)))
+{
+    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "---> nbFloat " << nbFloat << std::endl;
+    // std::cout << "---> " << this->_fixe << std::endl;
+    return ;
+}
+
+Fixed::Fixed(const Fixed & src)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    *this = src;
+    return ;
+}
+
+Fixed::~Fixed()
+{
+    std::cout << "Destructor called" << std::endl;
+    return ;
+}
+
+int Fixed::getRawBits(void) const
+{
+    // std::cout << "getRawBits member function called" << std::endl;
+    return (this->_fixe);
+}
+
+void Fixed::setRawBits(int const raw)
+{
+    // std::cout << "Setter called" << std::endl;
+    this->_fixe = raw;
+    return ;
+}
+
+/* Considerando che _fixe è il valore fisso memorizzato e _bits rappresenta
+ il numero di bit della parte frazionaria, la conversione
+corretta dovrebbe essere fatta dividendo _fixe per 2^bits. */
+
+float Fixed::toFloat(void)const{
+
+    // std::cout << "Method toFloat called " << std::endl;
+    return ((float)this->_fixe  / (1 << this->_bits));
+}
+
+int Fixed::toInt(void)const{
+
+    // std::cout << "Method toInt called" << std::endl;
+    return (this->_fixe >> this->_bits);
+}
+
+
+std::ostream & operator<<(std::ostream & os, const Fixed rhs)
+{
+    // std::cout << "assignment operator called" << std::endl;
+    os << rhs.toFloat();
+    return (os);
+}
+
