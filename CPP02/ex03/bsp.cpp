@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:04:04 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/04 16:36:10 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:30:12 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,19 @@ Fixed det(Point const &u, Point const &v)
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
+    Fixed a_x = a.getFixedX() - point.getFixedX();
+    Fixed a_y = a.getFixedY() - point.getFixedY();
+
+    Fixed b_x = b.getFixedX() - point.getFixedX();
+    Fixed b_y = b.getFixedY() - point.getFixedY();
+
+    Fixed c_x = c.getFixedX() - point.getFixedX();
+    Fixed c_y = c.getFixedY() - point.getFixedY();
+
+    if ((a_y == 0 && a_x == 0) || (b_y == 0 && b_x == 0) || (c_y == 0 && c_x == 0))
+        return false;
+    // if ((a.getFixedX() = point.getFixedX() && a.getFixedY() = point.getFixedY()) == true)
+    //     return false;
     Fixed determ = det(b, c);
     if ( determ == 0)
         return false;

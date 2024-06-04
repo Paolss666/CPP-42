@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:37:46 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/04 16:38:43 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:15:40 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
     Point e(0, 0);
     Point f(5, 0);
     Point g(0, 5);
-    Point h_p(7, 7);
+    Point h_p(5, 0);
 
 
     if (bsp(e, f, g, h_p) == true)
