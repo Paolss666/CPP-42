@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:54:39 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/04 16:40:11 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:23:48 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ Fixed::Fixed(void): _fixe(0)
     std::cout << "Default constructor called" << std::endl;
     return ;
 }
-
 
 // Costructor intNb fixe;
 
@@ -72,6 +71,7 @@ int Fixed::toInt(void)const{
 
 std::ostream & operator<<(std::ostream & os, const Fixed &rhs)
 {
+    // std::cout << "assignment operator called" << std::endl;
     os << rhs.toFloat();
     return (os);
 }
@@ -156,7 +156,7 @@ Fixed Fixed::operator*(Fixed const & src) const
     return (result);
 }
 
-Fixed Fixed::operator/(Fixed const & src) const
+Fixed Fixed::operator/(Fixed const & src) const 
 {
     Fixed result;
     

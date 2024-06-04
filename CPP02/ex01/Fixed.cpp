@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:54:39 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/03 14:26:58 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:40:24 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int Fixed::toInt(void)const{
 }
 
 
-std::ostream & operator<<(std::ostream & os, const Fixed rhs)
+std::ostream & operator<<(std::ostream & os, const Fixed &rhs)
 {
     // std::cout << "assignment operator called" << std::endl;
     os << rhs.toFloat();

@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:36:46 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/03 13:29:10 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:40:19 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ class Fixed
         void setRawBits(int const raw); // initialise la valeur du nombre a virgule fixe avec celle passee en parametre;
 };
 
-std::ostream & operator<<(std::ostream & os, const Fixed rhs);
+std::ostream & operator<<(std::ostream & os, const Fixed &rhs);
 
 #endif
