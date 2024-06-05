@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:05:55 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/05 14:13:39 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:38:27 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Fixed const b( Fixed (5.05f) * Fixed (2));
 Fixed const c( Fixed (5.05f) / Fixed (2));
 
 Fixed const d( Fixed( 2 ) - Fixed( 5.05f ) );
-Fixed f( Fixed( 2100 ) + Fixed( 5.05f ) );
+Fixed const f( Fixed( 2100 ) + Fixed( 5.05f ) );
 
 
 
@@ -67,9 +67,33 @@ std::cout << " a < b = " << (a < b) << std::endl;
 std::cout << " f = " << f << " c = " << c << std::endl;
 std::cout << " f >= c = " << (f >= c) << std::endl;
 
+std::cout << " f = " << f << " f = " << f << std::endl;
+std::cout << " f >= f = " << (f >= f) << std::endl;
+
+std::cout << " f = " << f << " c = " << c << std::endl;
+std::cout << " f <= c = " << (f <= c) << std::endl;
+
+std::cout << " c = " << c << " c = " << c << std::endl;
+std::cout << " c >= c = " << (c >= c) << std::endl;
+
+std::cout << " f = " << f << " f = " << f << std::endl;
+std::cout << " f >= f = " << (f >= f) << std::endl;
+
+std::cout << " f = " << f << " f = " << f << std::endl;
+std::cout << " f >= f = " << (f >= f) << std::endl;
+
+
 std::cout << " f = " << f << " c = " << c << std::endl;
 std::cout << " f == c = " << (f == c) << std::endl;
 
+std::cout << " f = " << f << " f = " << f << std::endl;
+std::cout << " f == f = " << (f == f) << std::endl;
+
+std::cout << " f = " << f << " f = " << f << std::endl;
+std::cout << " f != f = " << (f != f) << std::endl;
+
+std::cout << " c = " << c << " f = " << f << std::endl;
+std::cout << " c != f = " << (c != f) << std::endl;
 
 
 

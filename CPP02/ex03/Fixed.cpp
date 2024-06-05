@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:54:39 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/05 16:49:10 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:36:32 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ std::ostream & operator<<(std::ostream & os, const Fixed &rhs)
     return (os);
 }
 
-bool Fixed::operator>(Fixed const & src)
+bool Fixed::operator>(Fixed const & src) const
 {
     // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe > src._fixe) 
@@ -95,7 +95,7 @@ bool Fixed::operator>(Fixed const & src)
     return (false);
 }
 
-bool Fixed::operator<(Fixed const & src)
+bool Fixed::operator<(Fixed const & src) const
 {
     // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe < src._fixe) 
@@ -104,7 +104,7 @@ bool Fixed::operator<(Fixed const & src)
 }
 
 
-bool Fixed::operator==(Fixed const & src)
+bool Fixed::operator==(Fixed const & src) const
 {
     // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe ==  src._fixe) 
@@ -114,7 +114,7 @@ bool Fixed::operator==(Fixed const & src)
 
 
 
-bool Fixed::operator>=(Fixed const & src)
+bool Fixed::operator>=(Fixed const & src) const
 {
     // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe >= src._fixe) 
@@ -123,7 +123,7 @@ bool Fixed::operator>=(Fixed const & src)
 }
 
 
-bool Fixed::operator<=(Fixed const & src)
+bool Fixed::operator<=(Fixed const & src) const
 {
     // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe <= src._fixe) 
@@ -132,7 +132,7 @@ bool Fixed::operator<=(Fixed const & src)
 }
 
 
-bool Fixed::operator!=(Fixed const & src)
+bool Fixed::operator!=(Fixed const & src) const
 {
     // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe != src._fixe) 
