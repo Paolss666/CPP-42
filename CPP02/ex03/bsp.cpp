@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:04:04 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/05 16:54:00 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:22:03 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,7 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 
     Fixed    alpha = (a.getFixedX() * (c.getFixedY() - a.getFixedY()) + ((point.getFixedY() - a.getFixedY()) * (c.getFixedX() - a.getFixedX())) - point.getFixedX() * (c.getFixedY() - a.getFixedY())) / (((b.getFixedY() - a.getFixedY()) * (c.getFixedX() - a.getFixedX())) - (((b.getFixedX() - a.getFixedX()) * (c.getFixedY() - a.getFixedY()))));
     Fixed    beta = (point.getFixedY() - a.getFixedY() - alpha * (b.getFixedY() - a.getFixedY())) / c.getFixedY() - a.getFixedY();
-
-    // std::cout << "beta = " << beta << std::endl;
-    // std::cout << "alpha = " << alpha << std::endl;
     
     
-    return (alpha >= 0 && beta >= 0 && (alpha + beta) <= 1);
+    return (alpha > 0 && beta > 0 && (alpha + beta) < 1);
 }

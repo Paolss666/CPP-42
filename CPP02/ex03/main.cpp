@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:37:46 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/05 17:11:48 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:19:10 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,21 @@ int main()
     else
         std::cout << "---->>> outside <<<---- " << std::endl;
 
+    std::cout <<  std::endl;
+    std::cout <<  std::endl;
+    
+    Point e_bord(0, 0);
+    Point f_bord(5, 0);
+    Point g_bord(0, 5);
+    Point h_p_bord(0, 4);
+
+    std::cout << " a = (0, 0); b = (5, 0); c = (0, 5) ---> point_bord (0, 4) -> IS OUTSIDE --|" << std::endl;
+    std::cout << "TEST WITH ALGO BSP ";
+    
+    if (bsp(e_bord, f_bord, g_bord, h_p_bord) == true)
+        std::cout << "---->>> inside <<<---- " << std::endl;
+    else
+        std::cout << "---->>> outside <<<---- " << std::endl;
     return 0;
 }
 
