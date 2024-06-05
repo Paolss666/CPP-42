@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:54:39 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/04 16:40:24 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/05 13:45:07 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,12 @@ Fixed::Fixed(void): _fixe(0)
 Fixed::Fixed(int const nb): _fixe(nb << _bits)
 {
     std::cout << "Int constructor called" << std::endl;
-    // std::cout << "---> nb  " << nb << std::endl;
-    // std::cout << "---> " << this->_fixe << std::endl;
     return ;
 }
 
 Fixed::Fixed(float const nbFloat): _fixe(roundf( nbFloat * (1 << _bits)))
 {
     std::cout << "Float constructor called" << std::endl;
-    // std::cout << "---> nbFloat " << nbFloat << std::endl;
-    // std::cout << "---> " << this->_fixe << std::endl;
     return ;
 }
 
@@ -43,6 +39,15 @@ Fixed::Fixed(const Fixed & src)
     return ;
 }
 
+
+Fixed & Fixed::operator=(Fixed const & src)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &src)
+        this->_fixe = src.getRawBits();
+    return (*this);
+}
+
 Fixed::~Fixed()
 {
     std::cout << "Destructor called" << std::endl;
@@ -51,13 +56,11 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits(void) const
 {
-    // std::cout << "getRawBits member function called" << std::endl;
     return (this->_fixe);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    // std::cout << "Setter called" << std::endl;
     this->_fixe = raw;
     return ;
 }
@@ -68,20 +71,17 @@ corretta dovrebbe essere fatta dividendo _fixe per 2^bits. */
 
 float Fixed::toFloat(void)const{
 
-    // std::cout << "Method toFloat called " << std::endl;
     return ((float)this->_fixe  / (1 << this->_bits));
 }
 
 int Fixed::toInt(void)const{
 
-    // std::cout << "Method toInt called" << std::endl;
     return (this->_fixe >> this->_bits);
 }
 
 
 std::ostream & operator<<(std::ostream & os, const Fixed &rhs)
 {
-    // std::cout << "assignment operator called" << std::endl;
     os << rhs.toFloat();
     return (os);
 }

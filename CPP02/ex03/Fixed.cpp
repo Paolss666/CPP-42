@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:54:39 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/04 16:23:48 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:49:10 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed::Fixed(void): _fixe(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
     return ;
 }
 
@@ -22,26 +22,37 @@ Fixed::Fixed(void): _fixe(0)
 
 Fixed::Fixed(int const nb): _fixe(nb << _bits)
 {
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     return ;
 }
 
 Fixed::Fixed(float const nbFloat): _fixe(roundf( nbFloat * (1 << _bits)))
 {
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     return ;
 }
 
 Fixed::Fixed(const Fixed & src)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     *this = src;
     return ;
 }
 
+
+// OPERATOR <-----------
+
+Fixed & Fixed::operator=(Fixed const & src)
+{
+    // std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &src)
+        this->_fixe = src.getRawBits();
+    return (*this);
+}
+
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
     return ;
 }
 
@@ -78,7 +89,7 @@ std::ostream & operator<<(std::ostream & os, const Fixed &rhs)
 
 bool Fixed::operator>(Fixed const & src)
 {
-    std::cout << "assignment operator == called" << std::endl;
+    // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe > src._fixe) 
         return (true);
     return (false);
@@ -86,7 +97,7 @@ bool Fixed::operator>(Fixed const & src)
 
 bool Fixed::operator<(Fixed const & src)
 {
-    std::cout << "assignment operator == called" << std::endl;
+    // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe < src._fixe) 
         return (true);
     return (false);
@@ -95,7 +106,7 @@ bool Fixed::operator<(Fixed const & src)
 
 bool Fixed::operator==(Fixed const & src)
 {
-    std::cout << "assignment operator == called" << std::endl;
+    // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe ==  src._fixe) 
         return (true);
     return (false);
@@ -105,7 +116,7 @@ bool Fixed::operator==(Fixed const & src)
 
 bool Fixed::operator>=(Fixed const & src)
 {
-    std::cout << "assignment operator == called" << std::endl;
+    // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe >= src._fixe) 
         return (true);
     return (false);
@@ -114,7 +125,7 @@ bool Fixed::operator>=(Fixed const & src)
 
 bool Fixed::operator<=(Fixed const & src)
 {
-    std::cout << "assignment operator == called" << std::endl;
+    // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe <= src._fixe) 
         return (true);
     return (false);
@@ -123,7 +134,7 @@ bool Fixed::operator<=(Fixed const & src)
 
 bool Fixed::operator!=(Fixed const & src)
 {
-    std::cout << "assignment operator == called" << std::endl;
+    // std::cout << "assignment operator == called" << std::endl;
     if (this->_fixe != src._fixe) 
         return (true);
     return (false);
@@ -156,11 +167,11 @@ Fixed Fixed::operator*(Fixed const & src) const
     return (result);
 }
 
-Fixed Fixed::operator/(Fixed const & src) const 
+Fixed Fixed::operator/(Fixed const & src) const
 {
     Fixed result;
     
-    result.setRawBits((float)this->_fixe / src.getRawBits());
+    result.setRawBits((this->_fixe << this->_bits) / src.getRawBits());
 
     return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:36:53 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/04 16:34:44 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:21:19 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Point::Point(float const x, float const y): _y(y), _x(x)
 
 Point::Point(const Point & src):  _y(src.getFixedY()), _x(src.getFixedX())
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     *this = src;
     return ;
 }
@@ -32,7 +32,7 @@ Point::Point(const Point & src):  _y(src.getFixedY()), _x(src.getFixedX())
 
 Point & Point::operator=(Point const & src)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    // std::cout << "Copy assignment operator called" << std::endl;
     (void)src;
     return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 14:04:04 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/04 17:30:12 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:54:00 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ det(uv)= u * v = u_x * v_y - u_y * v_x // il determinante puo essere utilizzato
 
 
 Fixed det(Point const &u, Point const &v)
-{
+{    
     return ((u.getFixedX() * v.getFixedY()) - (u.getFixedY() * v.getFixedX()));
 }
 
@@ -64,14 +64,20 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 
     if ((a_y == 0 && a_x == 0) || (b_y == 0 && b_x == 0) || (c_y == 0 && c_x == 0))
         return false;
-    // if ((a.getFixedX() = point.getFixedX() && a.getFixedY() = point.getFixedY()) == true)
-    //     return false;
+    
     Fixed determ = det(b, c);
     if ( determ == 0)
         return false;
-    
-    Fixed alpha = ((det(point, b) - det(a, c)) / det(b, c));
-    Fixed beta = ((det(b, a) - det(b, point)) / det(b, c));
 
+    //  Fixed alpha = (v2_x * v1_y - v2_y * v1_x) / det_v0_v1;
+    // Fixed beta = (v0_x * v2_y - v0_y * v2_x) / det_v0_v1;
+
+    Fixed    alpha = (a.getFixedX() * (c.getFixedY() - a.getFixedY()) + ((point.getFixedY() - a.getFixedY()) * (c.getFixedX() - a.getFixedX())) - point.getFixedX() * (c.getFixedY() - a.getFixedY())) / (((b.getFixedY() - a.getFixedY()) * (c.getFixedX() - a.getFixedX())) - (((b.getFixedX() - a.getFixedX()) * (c.getFixedY() - a.getFixedY()))));
+    Fixed    beta = (point.getFixedY() - a.getFixedY() - alpha * (b.getFixedY() - a.getFixedY())) / c.getFixedY() - a.getFixedY();
+
+    // std::cout << "beta = " << beta << std::endl;
+    // std::cout << "alpha = " << alpha << std::endl;
+    
+    
     return (alpha >= 0 && beta >= 0 && (alpha + beta) <= 1);
 }

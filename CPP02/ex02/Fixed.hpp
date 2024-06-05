@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:36:46 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/04 16:40:02 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:10:45 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Fixed
         Fixed(int const nb); // Costructor intNb fixe;
         Fixed(float const nb); // Costructor float fixe;
         Fixed(const Fixed & src); // Constructor de recopie;
+        Fixed &operator=(Fixed const & src); // operator <--
         ~Fixed(void);             // Destructor ;
         float toFloat(void)const; // convertir la valeur en virgule fixe en  nombre flottante;
         int   toInt(void)const; // convertit  la valuer en virgule fixe en nombre entier;
