@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:05:55 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/05 17:38:27 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/06 11:02:07 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,6 @@ std::cout << " f <= c = " << (f <= c) << std::endl;
 
 std::cout << " c = " << c << " c = " << c << std::endl;
 std::cout << " c >= c = " << (c >= c) << std::endl;
-
-std::cout << " f = " << f << " f = " << f << std::endl;
-std::cout << " f >= f = " << (f >= f) << std::endl;
 
 std::cout << " f = " << f << " f = " << f << std::endl;
 std::cout << " f >= f = " << (f >= f) << std::endl;
