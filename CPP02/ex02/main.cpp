@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:05:55 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/06 12:19:45 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:25:04 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ Fixed const c( Fixed (5.05f) / Fixed (2));
 Fixed const d( Fixed( 2 ) - Fixed( 5.05f ) );
 Fixed const f( Fixed( 2100 ) + Fixed( 5.05f ) );
 Fixed const beta( Fixed( 2100 ) + Fixed( -10 ) );
+Fixed const cpy_beta(beta);
+
+std::cout << "TEST operator cpy" << std::endl;
+std::cout << std::endl; 
+std::cout << "beta = " << beta << std::endl;
+std::cout << "cpy_beta = " << cpy_beta << std::endl;
+std::cout << std::endl; 
 
 
 
@@ -37,7 +44,8 @@ std::cout << ++a << std::endl;
 std::cout << a << std::endl;
 std::cout << a++ << std::endl;
 std::cout << a << std::endl;
-std::cout << std::endl; 
+std::cout << std::endl;
+
 std::cout << "TEST OPERATOR -- //" << std::endl;
 std::cout << std::endl; 
 std::cout << a << std::endl;
