@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:05:55 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/06 11:02:07 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/06 12:19:45 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,37 @@ Fixed const c( Fixed (5.05f) / Fixed (2));
 
 Fixed const d( Fixed( 2 ) - Fixed( 5.05f ) );
 Fixed const f( Fixed( 2100 ) + Fixed( 5.05f ) );
+Fixed const beta( Fixed( 2100 ) + Fixed( -10 ) );
 
 
 
-std::cout << "TEST OPERATOR ++ -- //" << std::endl;
+std::cout << "TEST OPERATOR ++ //" << std::endl;
 std::cout << std::endl; 
 std::cout << a << std::endl;
 std::cout << ++a << std::endl;
 std::cout << a << std::endl;
 std::cout << a++ << std::endl;
 std::cout << a << std::endl;
+std::cout << std::endl; 
+std::cout << "TEST OPERATOR -- //" << std::endl;
+std::cout << std::endl; 
+std::cout << a << std::endl;
+std::cout << --a << std::endl;
+std::cout << a << std::endl;
+std::cout << a-- << std::endl;
+std::cout << a << std::endl;
+
+
+
+
 
 std::cout << std::endl;
 std::cout << "TEST OPERATOR MATH ----/" << std::endl; 
 std::cout << std::endl; 
+
+std::cout << "beta = " << beta << "     ";
+std::cout << "beta * 2 = " << beta * 2 << "  | ";
+std::cout << " 2090 * 2 = " << 2090 * 2 << std::endl;
 
 std::cout << "b = " << b << "     ";
 std::cout << "5.05f * 2 = " << 5.05f * 2 << std::endl;
