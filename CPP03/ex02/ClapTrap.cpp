@@ -6,21 +6,21 @@
 /*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 11:05:31 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/10 13:39:14 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/13 13:18:40 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 
-ClapTrap::ClapTrap():_hit(0), _enrgyp(0),_domage(0)
+ClapTrap::ClapTrap():_hit(0), _enrgyp(0),_damage(0)
 {
     std::cout << "Constructor default called" << std::endl;
     return;
 }
 
 
-ClapTrap::ClapTrap(std::string const name):_name(name), _hit(10), _enrgyp(10),_domage(0)
+ClapTrap::ClapTrap(std::string const name):_name(name), _hit(10), _enrgyp(10),_damage(0)
 {
     std::cout << "Constructor  called" << std::endl;
     return ;
@@ -59,9 +59,9 @@ void    ClapTrap::setEnergyP(unsigned int const enrgyp)
 }
 
 
-void    ClapTrap::setDamage(unsigned int const domage)
+void    ClapTrap::setDamage(unsigned int const dama_damage)
 {
-    this->_domage = domage;
+    this->_damage = dama_damage;
 }
 
 
@@ -84,9 +84,9 @@ unsigned int  ClapTrap::getEnergyP(void) const
 }
 
 
-unsigned int   ClapTrap::getDomage(void) const
+unsigned int   ClapTrap::getDamage(void) const
 {
-    return(this->_domage);
+    return(this->_damage);
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &src)
@@ -96,7 +96,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &src)
         this->_name = src.getName();
         this->_hit = src.getHit();
         this->_enrgyp = src.getEnergyP();
-        this->_domage = src.getDomage();
+        this->_damage = src.getDamage();
     }
     return (*this);
 }
@@ -105,7 +105,7 @@ void    ClapTrap::attack(const std::string &target)
 {
     if (this->_enrgyp > 0 && this->_hit > 0)
     {
-        std::cout << this->_name << " attack " << target << ", causing " << this->_domage << " points of damage" << std::endl;
+        std::cout << this->_name << " attack " << target << ", causing " << this->_damage << " points of damage" << std::endl;
         this->_enrgyp -= 1;
         return ;  
     }
@@ -132,7 +132,7 @@ void    ClapTrap::takeDamage(unsigned int amount)
     }
     else if (this->_hit > 0)
     {
-        std::cout << this->_name << " amount of hit  before domage = " << this->_hit << std::endl;
+        std::cout << this->_name << " amount of hit  before damage = " << this->_hit << std::endl;
         
         // if ()
         if ((this->_hit < amount))
@@ -144,7 +144,7 @@ void    ClapTrap::takeDamage(unsigned int amount)
     }
     else if (this->_enrgyp > 0 && this->_hit > 0)
     {
-        std::cout << this->_name << " take domage " << "amount = " << amount << " and hit now is = " << this->_hit << std::endl;
+        std::cout << this->_name << " take damage" << "amount = " << amount << " and hit now is = " << this->_hit << std::endl;
         return ;
     }
     // std::cout << this->_name << " can't do anything" << " becouse don't have energy points-> " << this->_enrgyp << " or hit points-> " << this->_hit << std::endl;
@@ -156,8 +156,8 @@ void    ClapTrap::beRepaired(unsigned int amount)
     std::cout << this->_name << " amount of hit  = " << this->_hit << std::endl;
     
     this->_hit += amount;
-    if (this->_hit > 100)
-        this->setHit(100);
+    if (this->_hit > 10)
+        this->setHit(10);
     if (this->_enrgyp > 0 && this->_hit > 0)
     {
         std::cout << this->_name << " take a Riparative potion " << "amount = " << amount << " and hit now is = " << this->_hit << std::endl;
@@ -177,6 +177,6 @@ void	ClapTrap::visualizePoints()
 	std::cout << std::setw(22) << this->_name ;
 	std::cout << " total point : " << std::setw(19)  << "│" << std::endl;
 	
-	std::cout << "│"<< std::setw(3) << this->_hit<< " hit points  " << std::setw(3) << this->_enrgyp << " energy points  " << std::setw(3) << this->_domage << " attack damage " << "|" << std::endl;
+	std::cout << "│"<< std::setw(3) << this->_hit<< " hit points  " << std::setw(3) << this->_enrgyp << " energy points  " << std::setw(3) << this->_damage << " attack damage " << "|" << std::endl;
 	std::cout << "└─────────────────────────────────────────────────────┘" << std::endl;
 }

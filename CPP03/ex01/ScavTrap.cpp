@@ -6,7 +6,7 @@
 /*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:20:19 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/10 13:17:15 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:22:08 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(): ClapTrap()
     std::cout << "ScavTrap default constructor called" << std::endl;
     this->_hit = 100;
     this->_enrgyp = 50;
-    this->_domage = 20;
+    this->_damage = 20;
     return ;
 }
 
@@ -28,7 +28,7 @@ ScavTrap::ScavTrap(std::string const name): ClapTrap()
     this->_name = name;
     this->_hit = 100;
     this->_enrgyp = 50;
-    this->_domage = 20;
+    this->_damage = 20;
     std::cout << "ScavTrap constructor called with name " << std::endl;
     return ;
 }
@@ -39,7 +39,7 @@ ScavTrap::ScavTrap(ScavTrap const & src): ClapTrap()
     this->_name = src.getName();
     this->_hit = src.getHit();
     this->_enrgyp = src.getEnergyP();
-    this->_domage = src.getDomage();
+    this->_damage = src.getDamage();
     return ;
 }
 
@@ -52,7 +52,7 @@ ScavTrap & ScavTrap::operator=(ScavTrap const &src)
         this->_name = src.getName();
         this->_hit = src.getHit();
         this->_enrgyp = src.getEnergyP();
-        this->_domage = src.getDomage();
+        this->_damage = src.getDamage();
     }
     return(*this);
 }

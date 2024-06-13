@@ -6,7 +6,7 @@
 /*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:42:43 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/10 13:31:16 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:20:23 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(void)
 	scvtrp.takeDamage(2);
 	
 	scvtrp.attack(clptr1.getName());
-	clptr1.takeDamage(scvtrp.getDomage());
+	clptr1.takeDamage(scvtrp.getDamage());
 
 	scvtrp.guardGate();
 

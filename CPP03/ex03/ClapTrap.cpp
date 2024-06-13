@@ -6,7 +6,7 @@
 /*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 11:05:31 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/13 13:18:46 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/13 13:21:33 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,6 @@ void	ClapTrap::visualizePoints()
 	std::cout << std::setw(22) << this->_name ;
 	std::cout << " total point : " << std::setw(19)  << "│" << std::endl;
 	
-	std::cout << "│"<< std::setw(3) << this->_hit<< " hit points  " << std::setw(3) << this->_enrgyp << " energy points  " << std::setw(3) << this->_damage << " attack damage "<< std::endl;
+	std::cout << "│"<< std::setw(3) << this->_hit<< " hit points  " << std::setw(3) << this->_enrgyp << " energy points  " << std::setw(3) << this->_damage << " attack damage " << "|" << std::endl;
 	std::cout << "└─────────────────────────────────────────────────────┘" << std::endl;
 }

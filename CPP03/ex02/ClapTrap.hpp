@@ -6,7 +6,7 @@
 /*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 11:04:13 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/10 12:51:47 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:16:03 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ClapTrap
         std::string                 _name;
         unsigned int               _hit;
         unsigned int              _enrgyp;
-        unsigned int              _domage;
+        unsigned int              _damage;
     public:
         ClapTrap();
         ClapTrap(std::string const name);
@@ -34,11 +34,11 @@ class ClapTrap
         void    setName(const std::string &name);
         void    setHit(unsigned int const hit);
         void    setEnergyP(unsigned int const enrgyp);
-        void    setDamage(unsigned int const domage);
+        void    setDamage(unsigned int const damage);
         std::string         getName(void)const ;
         unsigned int        getHit(void)const;
         unsigned int        getEnergyP(void)const;
-        unsigned int        getDomage(void)const;
+        unsigned int        getDamage(void)const;
         void    attack(const std::string &target);
         void    takeDamage(unsigned int amount);
         void    beRepaired(unsigned int amount);
