@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:22:44 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/18 16:04:06 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:03:10 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void    Character::equip(AMateria *m)
     {
         if (!(this->_inventory[i]))
         {
-            this->_inventory = m;
+            this->_inventory[i] = m;
             return;
         }
     }

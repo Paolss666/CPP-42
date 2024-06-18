@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:26:25 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/18 18:23:33 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:07:43 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ MateriaSource::MateriaSource(std::string const name):_name(name)
 
 MateriaSource::~MateriaSource()
 {
-    std::cout << this->_name << " : Destructor called" << std::endl;
+/*     std::cout << this->_name << " : Destructor called" << std::endl; */
+    this->_deleteInventory();
     return;
 }
 
@@ -38,25 +39,30 @@ MateriaSource::MateriaSource(MateriaSource const & src)
     this->_name = src._name;
     for (int i = 0; i < this->_inventorySize; i++)
     {
-        if (src._inventory[i])
-            this->_inventory[i] = src._inventory[i]->clone();
+        if (src._sInventory[i])
+            this->_sInventory[i] = src._sInventory[i]->clone();
         else
-            this->_inventory[i] = NULL;
+            this->_sInventory[i] = NULL;
     }
     return ;
 }
 
 MateriaSource & MateriaSource::operator=(MateriaSource const & src)
 {
-    if (this!= &src)
+    if (this != &src)
     {    
         this->_name = src._name;
         for (int i = 0; i < this->_inventorySize; i++)
         {
-            if (src._inventory[i])
-                this->_inventory[i] = src._inventory[i]->clone();
+            if (this->_sInventory[i])
+            {
+                delete this->_sInventory[i];
+                this->_sInventory[i] = NULL;
+            }
+            if (src._sInventory[i])
+                this->_sInventory[i] = src._sInventory[i]->clone();
             else
-                this->_inventory[i] = NULL;
+                this->_sInventory[i] = NULL;
         }
     }
     return(*this);
@@ -69,19 +75,31 @@ void    MateriaSource::learnMateria(AMateria *materia)
         return ;
     for (int i = 0; i < this->_inventorySize; i++)
     {
-        if (!(this->_inventory[i]))
+        if (!(this->_sInventory[i]))
         {
-            this->_inventory = materia;
+            this->_sInventory[i] = materia;
             return;
         }
     }
 }
 
 
+AMateria    *MateriaSource::createMateria(std::string const &type)
+{
+    if (!type.length())
+        return 0;
+    for (int i = 0; i < this->_inventorySize ; i++)
+    {
+        if (this->_sInventory[i] && this->_sInventory[i]->getType() == type)
+            return (this->_sInventory[i]->clone());
+    }
+    return 0;
+}
+
 void        MateriaSource::_setEmptyInventory()
 {
     for (int i = 0; i < this->_inventorySize; i++)
-        this->_inventory[i] = NULL;
+        this->_sInventory[i] = NULL;
     return ;
 }
 
@@ -89,8 +107,8 @@ void    MateriaSource::_deleteInventory()
 {
     for (int i = 0; i < this->_inventorySize; i++)
     {
-        if (this->_inventory[i] != NULL)
-            delete _inventory[i];
+        if (this->_sInventory[i] != NULL)
+            delete _sInventory[i];
     }
     this->_setEmptyInventory();
     return;

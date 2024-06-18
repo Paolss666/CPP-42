@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:55:52 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/18 17:07:04 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:34:11 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class MateriaSource: public IMateriaSource
 	protected :
 		std::string			_name;
 		static int const	_inventorySize = 4;
-		AMateria *			_inventory[_inventorySize];
+		AMateria *			_sInventory[_inventorySize];
 };
 
 
