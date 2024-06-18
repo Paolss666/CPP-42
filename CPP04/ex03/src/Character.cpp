@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:22:44 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/17 15:39:11 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:04:06 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ std::string const &	Character::getName(void) const
 	return this->_name;
 }
 
-void	Character::setname(std::string const name)
+void	Character::setName(std::string const name)
 {
 	this->_name = name;
 	return ;
@@ -99,7 +99,7 @@ void    Character::unequip(int idx)
         return ;
     }
     std::cout << this->_name << " has unequiped his idx : " << idx 
-	<< "] of the materia " << this->_inventory[idx]->getType() << std::endl;
+	<< " of the materia " << this->_inventory[idx]->getType() << std::endl;
 	this->_inventory[idx] = NULL;
     return ;
 }
@@ -134,3 +134,23 @@ void	Character::displayInventory(void) const
 	}
 	return ;
 }
+
+
+void        Character::_setEmptyInventory()
+{
+    for (int i = 0; i < this->_inventorySize; i++)
+        this->_inventory[i] = NULL;
+    return ;
+}
+
+void    Character::_deleteInventory()
+{
+    for (int i = 0; i < this->_inventorySize; i++)
+    {
+        if (this->_inventory[i] != NULL)
+            delete _inventory[i];
+    }
+    this->_setEmptyInventory();
+    return;
+}
+
