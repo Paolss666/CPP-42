@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:26:25 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/18 20:07:43 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/19 17:21:07 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void    MateriaSource::learnMateria(AMateria *materia)
             return;
         }
     }
+    // delete materia;
 }
 
 

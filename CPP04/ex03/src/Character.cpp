@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:22:44 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/18 20:03:10 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/19 17:05:41 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,18 @@ void    Character::equip(AMateria *m)
         return;
     for (int i = 0; i < this->_inventorySize; i++)
     {
+        if (this->_inventory[i] && (this->_inventory[i]) == m)
+            return ;
+    }        
+    for (int i = 0; i < this->_inventorySize; i++)
+    {
         if (!(this->_inventory[i]))
         {
             this->_inventory[i] = m;
             return;
         }
     }
+    delete m;
     return ;
 }
 
@@ -109,7 +115,7 @@ void	Character::use(int idx, ICharacter& target)
 	if (idx < 0 || idx >= this->_inventorySize)
 	{
 		std::cout << this->_name << " can't use the materia at idx : " << idx 
-		<< "], this idx number is not valid, it has to be between 0 and 3" << std::endl;
+		<< " , this idx number is not valid, it has to be between 0 and 3" << std::endl;
 		return ;
 	}
 	if (this->_inventory[idx] == NULL)
@@ -145,11 +151,8 @@ void        Character::_setEmptyInventory()
 
 void    Character::_deleteInventory()
 {
-    for (int i = 0; i < this->_inventorySize; i++)
-    {
-        if (this->_inventory[i] != NULL)
+    for (int i = 0; i < this->_inventorySize && this->_inventory[i] != NULL ; i++)
             delete _inventory[i];
-    }
     this->_setEmptyInventory();
     return;
 }
