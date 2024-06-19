@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 21:30:37 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/17 12:31:48 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:01:31 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,18 @@ Serve come interfaccia: Le classi astratte sono spesso utilizzate per definire u
 
 class Animal
 {
-private:
-    /* data */
-protected:
-    std::string _type;
-public:
-    Animal(/* args */);
-    Animal(std::string const name);
-    Animal(Animal const & src);
-    Animal &operator=(Animal const &src);
-    virtual ~Animal();
-    std::string const &getType(void)const;
-    virtual void makeSound(void)const;
-    std::string     *color;
+    private:
+        /* data */
+    protected:
+        std::string _type;
+    public:
+        Animal(/* args */);
+        Animal(std::string const name);
+        Animal(Animal const & src);
+        Animal &operator=(Animal const &src);
+        virtual ~Animal();
+        std::string const &getType(void)const;
+        virtual void makeSound(void)const;
 
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 10:40:04 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/17 11:40:56 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:53:30 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(void)
 		const Animal* i = new Cat();
 		std::cout << j->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
-		i->makeSound(); //will output the cat sound!
+		i->makeSound();
 		j->makeSound();
 		meta->makeSound();
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 21:30:37 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/17 12:35:33 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:04:22 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ class Animal
         virtual ~Animal();
         std::string const &getType(void)const;
         virtual void makeSound(void)const = 0;
-        std::string     *color;
-
 };
-
-
-
 
 #endif

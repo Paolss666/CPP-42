@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 21:35:22 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/17 11:45:10 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:02:59 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	Animal::makeSound(void) const
         std::cout << this->_type << " : Waof Waof !!" << std::endl;
     else if (this->_type == "Cat")
         std::cout << this->_type << " : Miauuu!!" << std::endl;
-    else if (this->_type == "Animal")
+    else
         std::cout << this->_type  << " : Random Animal sound..." << std::endl;
     return;
 }
