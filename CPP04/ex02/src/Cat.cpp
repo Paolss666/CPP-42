@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 22:06:07 by npoalett          #+#    #+#             */
-/*   Updated: 2024/06/17 12:05:39 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:34:49 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Cat & Cat::operator=(Cat const & src)
     if (this != &src)
     {
         this->_type = src._type;
-        if (!this->_brain)
+        if (this->_brain)
             delete (this->_brain);
         this->_brain = new Brain (*src._brain);
     }
