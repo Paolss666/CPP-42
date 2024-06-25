@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:17:21 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/24 16:50:12 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:57:01 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include <exception>
+#include <stdexcept>
 
+#include "../incl/Form.hpp"
+
+class Form;
 class Bureaucrat
 {
     private:
-        std::string const _name;
+        const std::string _name;
         int               _grade;
-        static const int       _lowExceptiongrade = 1;
-        static const int       _highExceptiongrade = 150;
     public:
+        static const int       _lowExceptiongrade = 150;
+        static const int       _highExceptiongrade = 1;
         Bureaucrat(/* args */);
         Bureaucrat(std::string name, int grade); 
         Bureaucrat(Bureaucrat const &src); 
@@ -41,15 +44,16 @@ class Bureaucrat
             public: 
                 virtual const char *what() const throw();
         };
+		void	signForm(Form &form) const;
         std::string getName() const;
         int     getGrade() const;
-        void    incrementGrade();
-        void    decrementGrade();
+        void    incrementeGrade();
+        void    decrementeGrade();
         
 
 };
 
-std::ostream & operator<<(std::ostream & os, const Bureaucrat &rhs);
+std::ostream & operator<<(std::ostream & os, Bureaucrat const &rhs);
 
 
 #endif

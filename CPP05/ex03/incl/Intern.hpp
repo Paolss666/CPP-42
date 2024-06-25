@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 14:09:51 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/24 16:43:10 by npaolett         ###   ########.fr       */
+/*   Created: 2024/06/25 16:48:41 by npaolett          #+#    #+#             */
+/*   Updated: 2024/06/25 16:50:41 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef INTERN_HPP
+#define INTERN_HPP
+
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-
-void    TestBurocrat(std::string name, int grade)
+class Intern
 {
-    try
-    {
-        Bureaucrat buro(name, grade);
-        std::cout << buro << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-        
-}
+private:
+    /* data */
+public:
+    Intern(/* args */);
+    ~Intern();
+};
 
-int main(void){
-    
-    TestBurocrat("lolo", 60);
-        
-    return 0;
-}
+
+
+#endif
