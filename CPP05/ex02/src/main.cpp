@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:09:51 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/25 16:35:55 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:11:56 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int main (void)
 	Bureaucrat b3("Maelle", 26);
 
 	std::cout << "--- Sign tests ---"  << std::endl;
-	std::cout << " *Gagao shouldn't be able to sign*"  << std::endl;
-	b2.signForm(shrubbery);
+	std::cout << " *Gagao should be able to sign*"  << std::endl;
+	b1.signForm(shrubbery);
 	std::cout << " *Maelle shouldn't be able to sign*"  << std::endl;
 	b3.signForm(president);
 	std::cout << " *Maelle incremente by 1*"  << std::endl;
@@ -56,10 +56,8 @@ int main (void)
 	std::cout << " *Merlou should be able to execute President*"  << std::endl;
 	b2.executeForm(president);
 	std::cout << " *Merlou should be able to execute Robotomy*"  << std::endl;
-	b2.executeForm(robotomy);
-	std::cout << " *Merlou should be able to execute Robotomy*"  << std::endl;
-	b2.executeForm(robotomy);
-	std::cout << " *Maelle should be able to execute Robotomy*"  << std::endl;
+	b3.executeForm(robotomy);
+	std::cout << " *Merlou shouldn't be able to execute Robotomy*"  << std::endl;
 	b3.executeForm(robotomy);
 	std::cout << " *Gagao should be able to execute Shrubbery*"  << std::endl;
 	try

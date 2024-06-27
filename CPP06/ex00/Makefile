@@ -6,21 +6,21 @@
 #    By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 16:22:18 by npaolett          #+#    #+#              #
-#    Updated: 2024/06/26 12:38:31 by npaolett         ###   ########.fr        #
+#    Updated: 2024/06/27 15:08:23 by npaolett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Intern
+NAME = Converter
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -MMD -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -MMD -Wno-unused -std=c++98
 
 INC_PATH = ./incl/
 INC = -I $(INC_PATH)
 
 SRCS_PATH = ./src/
-SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+SRC = main.cpp ScalarConverter.cpp
 SRCS = $(addprefix $(SRCS_PATH), $(SRC))
 
 OBJS_PATH = ./obj/
