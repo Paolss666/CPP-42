@@ -6,13 +6,18 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:14:59 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/28 11:49:40 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:52:19 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/ScalarConverter.hpp"
 
-
+/* 
+Le static_cast en C++ est l'une des façons 
+les plus sûres et contrôlées d'effectuer des conversions de types.
+Cet opérateur est principalement utilisé pour des conversions explicites 
+et bien définies que le compilateur peut vérifier à la compilation.
+ */
 
 ScalarConverter::ScalarConverter()
 {
@@ -48,36 +53,61 @@ bool    isChar(std::string const str)
     return (false);
 }
 
-bool    isInt(std::string const str)
+bool	isInt(std::string str)
 {
-    int i = 0;
-    int     nb = 0;
-    long int nblong = 0;
-
-    if (str[i] == '-' || str[i] == '-')
-        i++;
-    if (!str[i])
-        return false;
-    while (str[i])
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return false;
-        i++;
-    }
-    /* Dopo il tentativo di lettura, .fail() verifica se la lettura è fallita.
-    Se la lettura del valore int fallisce, 
-    significa che la stringa non contiene un numero int 
-    valido, 
-    e quindi la funzione restituisce false */
-    std::istringstream sstream(str);
-    std::istringstream fstream(str);
-    if ((sstream >> nblong).fail())
-        return (false);
-    fstream >> nblong;
-     if (nblong < -std::numeric_limits<float>::max() || nblong > std::numeric_limits<float>::max())
-       return (false);
-    return (true);
+	size_t		i = 0;
+	int			nb;
+	long int	nbl;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (false);
+		i++;
+	}
+	std::istringstream stream(str);
+	std::istringstream lstream(str);
+	if ((stream >> nb).fail())
+		return (false);
+	lstream >> nbl;
+	if (nbl < std::numeric_limits<int>::min() || nbl > std::numeric_limits<int>::max())
+		return (false);
+	return (true);
 }
+
+
+// bool    isInt(std::string const str)
+// {
+//     int i = 0;
+//     int     nb = 0;
+//     long int nblong = 0;
+
+//     if (str[i] == '-' || str[i] == '-')
+//         i++;
+//     if (!str[i])
+//         return false;
+//     while (str[i])
+//     {
+//         if (str[i] < '0' || str[i] > '9')
+//             return false;
+//         i++;
+//     }
+//     /* Dopo il tentativo di lettura, .fail() verifica se la lettura è fallita.
+//     Se la lettura del valore int fallisce, 
+//     significa che la stringa non contiene un numero int 
+//     valido, 
+//     e quindi la funzione restituisce false */
+//     std::istringstream sstream(str);
+//     std::istringstream fstream(str);
+//     if ((sstream >> nblong).fail())
+//         return (false);
+//     fstream >> nblong;
+//      if (nblong < std::numeric_limits<int>::min() || nblong > std::numeric_limits<int>::max())
+//        return (false);
+//     return (true);
+// }
 
 bool    isFloat(std::string str)
 {
@@ -100,6 +130,8 @@ bool    isFloat(std::string str)
             return false;
         i++;
     }
+    if (check != 1)
+		return (false);
     std::istringstream  fstream(str.erase(str.size() - 1));
     if ((fstream >> nbfloat).fail())
         return false;
@@ -127,6 +159,8 @@ bool    isDouble(std::string str)
             return false;
         i++;
     }
+    if (check != 1)
+		return (false);
     std::istringstream  fstream(str.erase(str.size() - 1));
     if ((fstream >> nbdouble).fail())
         return false;
@@ -148,15 +182,6 @@ bool	isPseudoLim(std::string str)
 }
 
 
-int     dataType(const std::string &str)
-{
-    if (isInt(str)) return 0;
-    if (isChar(str)) return 1;
-    if (isDouble(str)) return 2;
-    if (isFloat(str)) return 3;
-    if (isPseudoLim(str)) return 4;
-    return 5;
-}
 void	printFromInt(std::string str)
 {
 	int	nb;
@@ -271,9 +296,19 @@ void    impossibleConv(void)
     std::cout << "doule: impossible" <<std::endl;
 }
 
+int     dataType(const std::string &str)
+{
+    if (isInt(str)) return 0;
+    if (isChar(str)) return 1;
+    if (isDouble(str)) return 2;
+    if (isFloat(str)) return 3;
+    if (isPseudoLim(str)) return 4;
+    return 5;
+}
 void ScalarConverter::converter(std::string const src)
 {
     int type = dataType(src);
+    // std::cout << type << std::endl;
     switch (type)
     {
         case 0:

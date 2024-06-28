@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:55:25 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/28 15:56:12 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:12:01 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ Base *generate(void)
     }
     return (b);
 }
+
+/* 
+dynamic_cast:
+utilisé principalement pour le downcasting sécurisé de pointeurs et
+de références entre classes polymorphiques
+(c'est-à-dire des classes ayant au moins une méthode virtuelle).
+Contrairement à static_cast,
+dynamic_cast effectue une vérification de type à l'exécution pour garantir que la conversion est valide.
+ */
 
 void    identify(Base   *p)
 {
