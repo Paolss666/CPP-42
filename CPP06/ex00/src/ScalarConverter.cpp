@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:14:59 by npaolett          #+#    #+#             */
-/*   Updated: 2024/06/27 16:26:57 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/06/28 11:49:40 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ ScalarConverter::~ScalarConverter()
 
 bool    isChar(std::string const str)
 {
-    if (str.length() == 1)
+    if (str.size() == 1)
+    {
         if (str[0] >= 0 && str[0] <= 127)
             return (true);
+    }
     return (false);
 }
 
@@ -62,11 +64,11 @@ bool    isInt(std::string const str)
             return false;
         i++;
     }
-        /* Dopo il tentativo di lettura, .fail() verifica se la lettura è fallita.
-        Se la lettura del valore int fallisce, 
-        significa che la stringa non contiene un numero int 
-        valido, 
-        e quindi la funzione restituisce false */
+    /* Dopo il tentativo di lettura, .fail() verifica se la lettura è fallita.
+    Se la lettura del valore int fallisce, 
+    significa che la stringa non contiene un numero int 
+    valido, 
+    e quindi la funzione restituisce false */
     std::istringstream sstream(str);
     std::istringstream fstream(str);
     if ((sstream >> nblong).fail())
@@ -146,39 +148,151 @@ bool	isPseudoLim(std::string str)
 }
 
 
-static int     dataType(const std::string &str)
+int     dataType(const std::string &str)
 {
-    if (isChar(str)) return 0;
-    if (isInt(str)) return 1;
+    if (isInt(str)) return 0;
+    if (isChar(str)) return 1;
     if (isDouble(str)) return 2;
     if (isFloat(str)) return 3;
     if (isPseudoLim(str)) return 4;
     return 5;
 }
+void	printFromInt(std::string str)
+{
+	int	nb;
+	std::istringstream stream(str);
+	stream >> nb;	
+
+	if ((nb >= 0 && nb < 32) || nb == 127)
+		std::cout << "char: Non displayable" << std::endl;
+	else if (nb >= 32 && nb <= 126)
+		std::cout << "char: " << static_cast<char>(nb) << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+	std::cout << "int: " << nb << std::endl;
+	std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(nb) << ".0" << std::endl;
+}
+
+
+void	printFromChar(std::string str)
+{
+	std::cout << "char: '" << str[0] << "'" << std::endl;
+	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
+	std::cout << "float: " << static_cast<float>(str[0]) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(str[0]) << ".0" << std::endl;
+}
+
+
+void printFromFloat(std::string str)
+{
+    float	nbf;
+	
+	std::istringstream streamf(str.erase(str.size() - 1));
+	streamf >> nbf;
+    
+	// std::cout << "nbf = " <<  nbf << std::endl;
+
+	if (nbf < 32 || nbf > 126)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << static_cast<char>(nbf) << "'" << std::endl;
+
+	if (nbf >= static_cast<float>(std::numeric_limits<int>::min()) && nbf < static_cast<float>(std::numeric_limits<int>::max()))
+		std::cout << "int: " << static_cast<int>(nbf) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
+
+	if (nbf == static_cast<int>(nbf))
+		std::cout << "float: " << nbf << ".0f" << std::endl;
+	else
+		std::cout << "float: " << nbf << "f" << std::endl;
+
+	if (nbf == static_cast<int>(nbf))
+		std::cout << "double: " << nbf << ".0" << std::endl;
+	else
+		std::cout << "double: " << nbf << std::endl;
+    
+}
+
+void    printFromDouble(std::string str)
+{
+    double	nbd;
+	
+	std::istringstream streamf(str.erase(str.size() - 1));
+	streamf >> nbd;
+
+	if (nbd < 32 || nbd > 126)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << static_cast<char>(nbd) << "'" << std::endl;
+
+	if(nbd < static_cast<long>(std::numeric_limits<int>::min()) || nbd > static_cast<long>(std::numeric_limits<int>::max()))
+		std::cout << "int: impossible" << std::endl;
+	else 
+		std::cout << "int: " << static_cast<int>(nbd) << std::endl;
+
+    if (nbd < -static_cast<double>(std::numeric_limits<float>::max()) || nbd > static_cast<double>(std::numeric_limits<float>::max()))
+		std::cout << "float: impossible" << std::endl;
+	else if (static_cast<float>(nbd) == static_cast<int>(nbd))
+		std::cout << "float: " << static_cast<float>(nbd) << ".0f" << std::endl;
+	else
+		std::cout << "float: " << static_cast<float>(nbd) << "f" << std::endl;
+
+	if (nbd == static_cast<int>(nbd))
+		std::cout << "double: " << nbd << ".0" << std::endl;
+	else
+		std::cout << "double: " << nbd << std::endl;
+}
+
+void    printLim(std::string str)
+{
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    if (str == "-inff" || str == "+inff" || str == "nanf")
+	{
+		std::cout << "float: " << str << std::endl;
+		std::cout << "double: " << str.erase(str.length() - 1) << std::endl;
+	}
+	else
+	{
+		std::cout << "float: " << str << "f" << std::endl;
+		std::cout << "double: " << str << std::endl;
+	}
+	return ;
+
+}
+
+void    impossibleConv(void)
+{
+    std::cout << "char: impossible" <<std::endl;
+    std::cout << "int: impossible" <<std::endl;
+    std::cout << "float: impossible" <<std::endl;
+    std::cout << "doule: impossible" <<std::endl;
+}
 
 void ScalarConverter::converter(std::string const src)
 {
     int type = dataType(src);
-    std::cout << type << std::endl;
     switch (type)
     {
         case 0:
-            std::cout << "CHAR"  << std::endl;       
+            printFromInt(src);
             break;
         case 1:
-            std::cout << "INT"  << std::endl;       
+            printFromChar(src);       
             break;
         case 2:
-            std::cout << "DOUBLE"  << std::endl;
+            printFromDouble(src);
             break;
         case 3:
-            std::cout << "FLOAT"  << std::endl;       
+            printFromFloat(src);      
             break;
         case 4:
-            std::cout << "LIM"  << std::endl;       
+            printLim(src);  
             break;
         default:
-            std::cout << "booh"  << std::endl;       
+            impossibleConv();       
             break;
     }
     return ;
