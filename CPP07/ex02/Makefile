@@ -6,12 +6,12 @@
 #    By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 16:22:18 by npaolett          #+#    #+#              #
-#    Updated: 2024/07/02 13:31:43 by npaolett         ###   ########.fr        #
+#    Updated: 2024/07/02 17:23:05 by npaolett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Iter
+NAME = array
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -Wno-unused -std=c++98
