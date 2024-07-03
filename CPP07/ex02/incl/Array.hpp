@@ -6,7 +6,7 @@
 /*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:39:57 by npaolett          #+#    #+#             */
-/*   Updated: 2024/07/02 17:40:52 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/07/03 11:52:08 by npaolett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Array
                 
             }
             else
-                _data = NULL;
+                this->_data = NULL;
         }
         Array &operator=(Array const &src)
         {

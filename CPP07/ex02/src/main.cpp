@@ -18,7 +18,6 @@ int main(int, char**)
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
-
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
@@ -44,16 +43,23 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
     for(int i = 0; i < MAX_VAL; i++)
         std::cout << numbers[i] << std::endl;
     
-
+    Array<char> numbersCharCpy(MAX_VAL);
+    Array<char> mirrorCharCpy(MAX_VAL);
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        // const char value = rand();
+        // const char valueR = rand();
+        numbersCharCpy[i] = 'n';
+        // mirrorCharCpy[i] = valueR;
+    }
+    for (int i = 0; i < MAX_VAL; i++)
+        std::cout << numbersCharCpy[i] << std::endl;
+    
     std::cout << std::endl << "New test Cpy" << std::endl;
+    
     Array<int> numbersCpy(numbers);
     int* mirrorCpy = new int[MAX_VAL];
     for (int i = 0; i < MAX_VAL; i++)
