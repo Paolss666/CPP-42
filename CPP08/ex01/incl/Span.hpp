@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:27:45 by npaolett          #+#    #+#             */
-/*   Updated: 2024/07/03 17:32:14 by npaolett         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:55:04 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,56 @@
 
 #include <iomanip>
 #include <iostream>
+
+
 #include <vector>
+#include <algorithm>
 #include <map>
 #include <list>
 #include <string>
-
-
-template<typename N> 
+#include <iterator>
 
 class Span
 {
     private:
-        int _array[N];
+        unsigned int    N;
+        std::vector<int>    array;
     public:
         Span();
-        Span();
+        Span(unsigned int N);
         Span(Span const &src);
         Span &operator=(Span const &src);
         ~Span();
+
+        void    addNumber(int nb);
+        
+        int     shortestSpan();
+        
+        int     longestSpan();
+
+        void    addNumberSpan(std::vector<int> toAdd);
+        
+        void       printSpan(void);
+
+        /* exception */
+        class fullArray: public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+        
+        class emptyArray: public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+        
+        class noDistanceFound: public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+
 };
 
 

@@ -6,12 +6,12 @@
 #    By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 16:22:18 by npaolett          #+#    #+#              #
-#    Updated: 2024/07/05 11:04:37 by npoalett         ###   ########.fr        #
+#    Updated: 2024/07/05 11:55:00 by npoalett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = Span
+NAME = MutantStack
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -Wno-unused -std=c++98
@@ -20,7 +20,7 @@ INC_PATH = ./incl/
 INC = -I $(INC_PATH)
 
 SRCS_PATH = ./src/
-SRC = main.cpp Span.cpp
+SRC = main.cpp 
 SRCS = $(addprefix $(SRCS_PATH), $(SRC))
 
 OBJS_PATH = ./obj/
