@@ -6,7 +6,7 @@
 /*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 11:55:15 by npoalett          #+#    #+#             */
-/*   Updated: 2024/07/05 12:10:43 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:26:08 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,35 @@
 #include <stack>
 #include <list>
 #include <iterator>
+#include <deque>
 
-template<typename T>
+/* type name U = std::deque<T>, se non viene definito allora prende come valore
+    prefedifino C sara considerato come std::deque<T>  */
 
-class MutantStack: public std::stack<T>
+template<typename T, typename U = std::deque<T> >
+
+class MutantStack: public std::stack<T, U>
 {
-    private:
-    
-    public: 
-        MutantStack(void){return;}
-        MutantStack(MutantStack const &src){*this = src;}
-        ~MutantStack(void){ return ;}
-        MutantStack &operator=(MutantStack const &src)
-        {
-            if (this != &src)
-                *this = src;
-            return (*this);
-        }
-        typedef typename MutantStack<T>::stack::container_type::iterator iterator;
-        iterator begin(){return this->c.begin();}
-        iterator end(){return this->c.end();}
+	public:
+		MutantStack<T, U>(void) : std::stack<T, U>() {};
+		MutantStack<T, U>(MutantStack<T, U> const &src) : std::stack<T, U>(src) {};
+		explicit MutantStack<T, U>(U const &c) : std::stack<T,U>(c) {};
+		~MutantStack<T, U>(void) {};
 
-        typedef typename MutantStack<T>::stack::container_type::reverse_iterator reverse_iterator;
-        reverse_iterator rbegin(){return this->c.rbegin();}
-        reverse_iterator rend(){return this->c.rend();} 
+		MutantStack<T, U>	&operator=(MutantStack<T, U> const &src)
+		{
+			if (this != &src)
+				this->u = src.c;
+			return (*this);
+		}
+
+		typedef typename std::stack<T, U>::container_type::iterator iterator;
+		iterator begin() {return this->c.begin();};
+		iterator end() {return this->c.end();};
+
+		typedef typename std::stack<T, U>::container_type::reverse_iterator riterator;
+		riterator rbegin() {return this->c.rbegin();};
+		riterator rend() {return this->c.rend();};
 };
 
 #endif

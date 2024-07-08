@@ -6,7 +6,7 @@
 /*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:57 by npoalett          #+#    #+#             */
-/*   Updated: 2024/07/05 11:04:14 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:41:38 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ int	Span::longestSpan(void)
 		int distMax = array[array.size() - 1] - array[0];
 		return (distMax);
 	}
-	throw Span::noDistanceFound();
+    else 
+	    throw Span::noDistanceFound();
 }
 
 void	Span::printSpan(void)

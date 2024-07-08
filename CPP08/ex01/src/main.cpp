@@ -6,7 +6,7 @@
 /*   By: npoalett <npoalett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:46:08 by npoalett          #+#    #+#             */
-/*   Updated: 2024/07/05 11:43:31 by npoalett         ###   ########.fr       */
+/*   Updated: 2024/07/06 13:37:00 by npoalett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(void)
 
 	std::cout << "\n-- Test with a span size 15000 --" << std::endl;
 	Span sp2 = Span(15000);
-	std::vector<int> vec1(10000,100)
+	std::vector<int> vec1(10000, 100);
 	std::vector<int> vec2(5000, 200);
 
 	try
