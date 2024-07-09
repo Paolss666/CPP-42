@@ -6,12 +6,12 @@
 #    By: npaolett <npaolett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 16:22:18 by npaolett          #+#    #+#              #
-#    Updated: 2024/07/09 14:27:54 by npaolett         ###   ########.fr        #
+#    Updated: 2024/07/09 16:46:03 by npaolett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = btc
+NAME = RPN
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -Wno-unused -std=c++98
@@ -20,7 +20,7 @@ INC_PATH = ./incl/
 INC = -I $(INC_PATH)
 
 SRCS_PATH = ./src/
-SRC = main.cpp BitcoinExchange.cpp
+SRC = main.cpp
 SRCS = $(addprefix $(SRCS_PATH), $(SRC))
 
 OBJS_PATH = ./obj/
